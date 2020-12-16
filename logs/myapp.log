@@ -1,0 +1,34 @@
+2020-11-25 17:06:33 INFO  UserServiceAspect:48 - is user exist = null
+2020-11-25 17:06:33 INFO  UserServiceAspect:54 - After callAtUserServiceExistsUserByLogin
+2020-12-15 19:44:38 INFO  UserServiceAspect:48 - is user exist = null
+2020-12-15 19:44:38 INFO  UserServiceAspect:54 - After callAtUserServiceExistsUserByLogin
+2020-12-15 19:44:53 DEBUG MainRestController:81 - user reged 
+2020-12-15 19:46:16 INFO  UserServiceAspect:48 - is user exist = User(id=1, login=amanites, password=$2a$10$.qS9J9SG3qZRmgsizzv/SuxoigjO5zcKl7Q0bdmT.keoP4ErrovWa, userRole=UserRole(id=2, name=ROLE_USER), active=false, email=fpfpfppfp@mail.ru, activationCode=d2bd2eb9-e3fb-4313-82d2-6e87ae80c1ec)
+2020-12-15 19:46:16 INFO  UserServiceAspect:54 - After callAtUserServiceExistsUserByLogin
+2020-12-15 19:46:32 INFO  UserServiceAspect:48 - is user exist = null
+2020-12-15 19:46:32 INFO  UserServiceAspect:54 - After callAtUserServiceExistsUserByLogin
+2020-12-15 19:46:45 DEBUG MainRestController:81 - user reged 
+2020-12-15 19:48:09 DEBUG MainRestController:61 - get user by token
+2020-12-15 19:51:20 DEBUG MainRestController:61 - get user by token
+2020-12-15 19:54:45 INFO  UserServiceAspect:48 - is user exist = null
+2020-12-15 19:54:45 INFO  UserServiceAspect:54 - After callAtUserServiceExistsUserByLogin
+2020-12-15 19:54:59 DEBUG MainRestController:81 - user reged 
+2020-12-15 19:55:32 DEBUG MainRestController:61 - get user by token
+2020-12-15 20:00:02 DEBUG MainRestController:61 - get user by token
+2020-12-15 20:00:06 DEBUG SoftwareRestController:23 - downloaded
+2020-12-16 00:32:19 DEBUG MainRestController:61 - get user by token
+2020-12-16 21:01:14 DEBUG MainRestController:61 - get user by token
+2020-12-16 21:04:52 DEBUG MainRestController:61 - get user by token
+2020-12-16 21:11:29 DEBUG MainRestController:61 - get user by token
+2020-12-16 21:11:44 DEBUG MainRestController:61 - get user by token
+2020-12-16 21:39:04 DEBUG MainRestController:61 - get user by token
+2020-12-16 21:40:13 DEBUG MainRestController:61 - get user by token
+2020-12-16 21:40:25 DEBUG MainRestController:61 - get user by token
+2020-12-16 21:40:44 DEBUG SoftwareRestController:23 - downloaded
+2020-12-16 21:45:44 DEBUG MainRestController:61 - get user by token
+2020-12-16 21:45:47 DEBUG SoftwareRestController:25 - downloaded
+2020-12-16 21:45:49 DEBUG SoftwareRestController:25 - downloaded
+2020-12-16 21:45:50 DEBUG SoftwareRestController:25 - downloaded
+2020-12-16 21:45:55 DEBUG SoftwareRestController:25 - downloaded
+2020-12-16 21:45:57 DEBUG SoftwareRestController:25 - downloaded
+2020-12-16 21:45:59 DEBUG SoftwareRestController:25 - downloaded

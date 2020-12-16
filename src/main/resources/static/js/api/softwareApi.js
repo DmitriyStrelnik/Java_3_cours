@@ -1,3 +1,5 @@
+
+
 async function isSoftwareExist(data,token) {
     return await fetch("/admin/isSoftwareExist",{
         method :'POST',
@@ -28,6 +30,25 @@ async function getSoftware(data,token) {
             'content-type': 'application/json'
         },
 
+    }).then(function (res) {
+        return res.json();
+    }).then(function (data) {
+        return data;
+    });
+}
+
+async function getAllSoftware(token) {
+    return await fetch(`/getAllSoftware`,{
+        method :'GET',
+        headers: {
+            'Authorization': `Bearer ${token}`,
+            'content-type': 'application/json'
+        },
+
+    }).then(function (res) {
+        return res.json();
+    }).then(function (data) {
+        return data;
     });
 }
 

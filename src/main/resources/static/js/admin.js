@@ -3,12 +3,58 @@ async function isAdmin() {
     return user['role'] === 'ROLE_ADMIN';
 }
 
+async function getCertainSoft(softObj) {
+    console.log(softObj);
+    let token = localStorage.getItem('token');
+    let soft = await getSoftware(softObj['name'],token);
+
+    document.getElementById('name').value=soft['name'];
+    document.getElementById('description').value=soft['description'];
+    // document.getElementById('file').value=soft['softwareName'];
+}
+
+async function genListOfSoftwareForAdmin() {
+    let token = localStorage.getItem('token');
+    let someList = document.querySelector('.someList');
+    someList.innerHTML='';
+    let listSoft = await getAllSoftware(token);
+
+    for (let i = 0; i < listSoft.length; i++) {
+        let genDiv = div();
+        let genP1 = p(listSoft[i]['name'] + ' ' + listSoft[i]['description']);
+        let genBut = buttonWithParams(listSoft[i]['softwareName']);
+
+        genBut.onclick = async()=>{
+            await getCertainSoft(listSoft[i]);
+        };
+        genDiv.appendChild(genP1);
+        genDiv.appendChild(genBut);
+        someList.appendChild(genDiv);
+    }
+
+}
+
 async function genCreate() {
 
     let create = document.querySelector('.create');
     let createButton = button(await genSoftCreateButton, 'Create');
     createButton.id = 'docCreateButton';
     create.appendChild(createButton);
+
+}
+
+async function genSoftware() {
+    let info = document.querySelector(".software");
+
+    let name = input('text', 'name', 'Name');
+
+    let description = input('text', 'description', 'Surname');
+
+    let file = input('file', 'file');
+
+    info.appendChild(name);
+    info.appendChild(description);
+    info.appendChild(file);
 
 }
 
@@ -21,18 +67,20 @@ async function genSoftCreateButton() {
 
         let description= document.getElementById('description').value;
         let file= document.getElementById('file').value;
+        console.log(file);
 
         let data = {
             name: name,
-            surname: description,
+            description: description,
             file: file
         };
 
         await createSoftware(data, token);
         console.log(data);
         errMes.innerHTML = 'Created';
+        await genListOfSoftwareForAdmin();
     } else {
-        errMes.innerHTML = 'Not all fields are correct or document exist';
+        errMes.innerHTML = 'Not all fields are correct or soft exist';
     }
 }
 
@@ -58,6 +106,7 @@ function validateSoftware() {
 async function genUpdate() {
     let create = document.querySelector('.update');
     let deleteButton = button(genUpdateSoftware, 'update');
+
     create.appendChild(deleteButton);
 }
 
@@ -70,18 +119,19 @@ async function genUpdateSoftware() {
     let isNotExist = await isSoftwareExist({name: name}, token);
     if (await isAuth() && !isNotExist.ok) {
 
-        let res = await getSoftware(name, token);
-        let text = await res.text();
-        let softwareInfo = JSON.parse(text);
+        let softwareInfo = await getSoftware(name, token);
+
 
         if (validateSoftware()) {
             await updateSoftware({
                 id: softwareInfo['id'],
                 name: name,
                 description: document.getElementById('description').value,
+                file:document.getElementById('file').value
 
             }, token);
             errMes.innerHTML = 'updated';
+            await genListOfSoftwareForAdmin();
         } else {
             errMes.innerHTML = 'not validate data';
         }
@@ -113,8 +163,9 @@ async function genDeleteSoftware() {
             name.value='';
             description.value='';
             file.value='';
+            await genListOfSoftwareForAdmin();
         }else{
-            errMes.innerHTML = 'U still have patients';
+            errMes.innerHTML = 'smt not ok';
         }
 
     } else {

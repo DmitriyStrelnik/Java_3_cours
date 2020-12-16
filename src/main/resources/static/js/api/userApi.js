@@ -34,3 +34,12 @@ async function logUser(data) {
         }
     });
 }
+async function downloadFile(name,token) {
+    return await fetch(`/user/download/${name}`, {
+        method: "GET",
+        headers: {
+            'Authorization': `Bearer ${token}`,
+            'content-type': 'application/json'
+        },
+    });
+}

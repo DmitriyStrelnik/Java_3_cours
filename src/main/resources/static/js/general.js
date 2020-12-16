@@ -49,6 +49,9 @@ function validateLoginPass(login, password , email) {
 
     return true;
 }
+function isTokenExist() {
+    return localStorage.getItem('token') != null;
+}
 
 async function reg() {
     let login = document.getElementById("login").value;

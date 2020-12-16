@@ -27,7 +27,16 @@ public class Software {
 
     @Column
     @NotNull(message = "File not be null")
-    private File software;
+    private String softwareName;
+
+    public Software() {
+    }
+
+    public Software(@Size(min = 4, max = 16, message = "Name from 4 to 16") @NotNull(message = "Name not be null") String name, @Size(min = 4, message = "Description from 4 to 16") @NotNull(message = "Description not be null") String description, @NotNull(message = "File not be null") String softwareName) {
+        this.name = name;
+        this.description = description;
+        this.softwareName = softwareName;
+    }
 
     public long getId() {
         return id;
@@ -53,11 +62,11 @@ public class Software {
         this.description = description;
     }
 
-    public File getSoftware() {
-        return software;
+    public String getSoftwareName() {
+        return softwareName;
     }
 
-    public void setSoftware(File software) {
-        this.software = software;
+    public void setSoftwareName(String softwareName) {
+        this.softwareName = softwareName;
     }
 }
